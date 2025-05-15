@@ -1,0 +1,10 @@
+    <div class="sideBar">
+        <% if (currentUser) { %>
+            <% users.forEach((user) => { %>
+                <li><a href="/messages/<%= user.username %> "><%= user.username %></a></li>
+        <% }) %>
+        <% } else { %>
+            <p><a href="/login">Log In</a> to post your own message and see other users.</p>
+            <p>No account yet? <a href="/signup">Sign up here!</a></p>
+        <% } %>
+    </div>

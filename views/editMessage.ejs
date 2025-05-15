@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Only</title>
+</head>
+<body>
+    <h1>ADD MESSAGE</h1>
+    <form action="/messages/">
+        <textarea 
+        name="content" 
+        rows="20" 
+        cols="50" 
+        required 
+        autofocus
+        wrap="soft"
+        placeholder="Write your message here..."
+        value="<%= message.content %>"
+        ></textarea>
+    </form>
+</body>
+</html>

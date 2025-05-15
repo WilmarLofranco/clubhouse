@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 
+
 // require modules
 const routes = require('./routes/routes.js');
 
@@ -11,6 +12,16 @@ app.set('views', './views');
 
 // define middlewares
 app.use(express.urlencoded({extended:true}));
+app.use(express.static('public'));
+
+//set session configs 
+
+
+// 
+app.use((req, res, next) => {
+    res.locals.currentUser = req.user;
+    next();
+});
 
 // pass routing
 app.get('/', )

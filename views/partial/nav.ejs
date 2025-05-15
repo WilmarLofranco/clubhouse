@@ -1,0 +1,13 @@
+    <div class="nav">
+        <h1>Member Only</h1>
+        <div>
+            <% if (currentUser) { %>
+                <a href="/messages/<%= currentUser.username %>"><%= currentUser.username %></a>
+                <a href="/add">ADD MESSAGE</a>
+                <a href="/logout">LOG OUT</a>
+            <% } else { %>
+                <a href="/login">Log In</a>
+                <a href="/signup">Sign Up</a>
+            <% } %>
+        </div>
+    </div>

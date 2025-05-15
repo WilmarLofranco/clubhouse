@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members Only</title>
+</head>
+<body>
+    <%- include("partial/nav.ejs") %>
+    <div class="messages-container">
+        <% if (messages && messages.length > 0) { %>
+            <ul>
+                <% messages.forEach((message) => { %>
+                    <li class="message-box">
+                        <strong><%= currentUser ? message.username : "Anonymous" %></strong><br>
+                        <%= message.content %> <br>
+                        <small><%= message.created %></small> <br>
+                        <% if (currentUser && currentUser.username === message.username) { %>
+                            <small><a href="/edit/<%= message.id %>">Edit</a></small>
+                            <small><a href="/delete/<%= message.id %>">Delete</a></small>
+                        <% } else if (currentUser && currentUser.admin) { %>
+                            <small><a href="/delete/<%= message.id %>">Delete</a></small>
+                        <% } %>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <h2>Be the first to post a message!</h2>
+        <% } %> 
+    </div>
+    <%- include("partial/sideBar.ejs") %>
+</body>
+</html>
